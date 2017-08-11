@@ -1,14 +1,20 @@
+
+<p style = "font-size: 40px;"><a href="#">
+    Add a Cocktail
+  </a>
+</p>
+
+
 <div class="container">
   <div class="row text-center">
     <div class="col-sm-6 col-sm-offset-3">
       <h1 class="text-center">
-      Type in your new Cocktail
       </h1>
       <%= simple_form_for @cocktail do |f| %>
-        <h3>Name</h3>
-        <%= f.text_field :name %>
-        <h3>Submit your cocktail Mofo</h3>
-        <%= f.submit "Create Cocktail" %>
+        <%= f.text_field :name, class: "form-group"%>
+        <%= f.input :photo, class: "form-group"%>
+        <%= f.input :photo_cache, as: :hidden, class: "form-group" %>
+        <%= f.submit "Create Cocktail", class: "btn btn-default btn-round-purple" %>
       <% end %>
     </div>
   </div>

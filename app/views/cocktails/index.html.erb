@@ -1,14 +1,28 @@
+<div id="container">
+<p>
+<a href="#">
+    COCKTAIL HEAVEN
+  </a>
+</p>
+</div>
 
-<div class="container">
-  <div class="row" style ="margin-top: 20px; margin-bottom: 20px;">
+
+
+
+
+<div class="container" style="border-top: 2px solid #ff00aa; margin-left:0px;margin-right: 0px; width: auto;">
+  <div class="row" style ="margin-top: 20px; margin-bottom: 5px;">
   <% @cocktails.each do |cocktail| %>
-    <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai'); background-size: cover;">
-        <div class="card-description">
-          <h2><%= cocktail.name %> </h2>
-        </div>
+    <div class="col-xs-12 col-sm-2">
+    <% if cocktail.photo != nil %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>'); background-size: cover;">
+    <% else %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'Cocktail_logo.png'%>'); background-size: cover;">
+    <%end%>
+
         <%= link_to "", cocktail_path(cocktail.id), class: "card-link" %>
       </div>
+      <div class="text-center" style="margin-bottom:20px; color: #616668;"> <%= cocktail.name %> </div>
       <!-- insert <div class="card"> -->
     </div>
   <% end %>
@@ -16,5 +30,9 @@
 </div>
 
 <div class="row text-center">
-<%= link_to "Add a new cocktail", new_cocktail_path, class: "btn btn-default btn-last" %>
+<%= link_to "Add a new cocktail", new_cocktail_path, class: "btn btn-default btn-round-purple" %>
 </div>
+
+
+<!-- <img src='https://kitt.lewagon.com/placeholder/users/alex-felix' class="avatar-large"/>
+ -->

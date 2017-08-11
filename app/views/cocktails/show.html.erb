@@ -1,16 +1,25 @@
+
+<div id="container">
+<p style="font-size: 20px;">
+<a href="#">
+<%= @cocktail.name %>
+  </a>
+</p>
+</div>
 <div class="banner text-center">
-
-<h1>Look at my awesome cocktail</h1>
-
-<h2><%= @cocktail.name %></h2>
-
-<h3><% @cocktail.doses.each do |dose|%></h3>
-<h2><%= dose.ingredient.name%></h2>
-<h2><%= dose.description%></h2>
+<div style="margin-bottom: 15px;"><%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %></div>
+<div>
+<%= link_to "Delete cocktail", cocktail_path(@cocktail), method: :delete, class: "btn btn-default btn-round-purple"%>
+</div>
+<div class="container">
+<% @cocktail.doses.each do |dose|%>
+<h4><%= dose.ingredient.name%></h4>
+<h4><%= dose.description%></h4>
+</div>
+</div>
 
 <%= link_to "Destroy ingredient", dose_path(dose), method: :delete, class: "btn btn-default"%>
 <h2><% end%></h2>
-</div>
 
 <div class="container">
   <div class="row text-center">
@@ -19,7 +28,7 @@
 <h3>Add an ingredient</h3>
 <%= simple_form_for [@cocktail, @dose] do |f| %>
   <p>Type in the description of your cocktail</p>
-  <%= f.text_field :description, class:"form-group" %>
+  <%= f.input :description, class:"form-group" %>
   <%= f.association :ingredient, class:"form-group" %>
   <%= f.submit "Create Ingredient" %>
 <% end %>
@@ -29,6 +38,6 @@
 
 
 
-<%#<%= link_to "Add ingredients to your cocktail", new_cocktail_dose_path(@cocktail), class: "btn btn-default"%>
+
 
 
