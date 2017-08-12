@@ -1,6 +1,6 @@
 <div id="container">
 <p>
-<a href="#">
+<a href="/cocktails/new">
     COCKTAIL HEAVEN
   </a>
 </p>
@@ -14,7 +14,7 @@
   <div class="row" style ="margin-top: 20px; margin-bottom: 5px;">
   <% @cocktails.each do |cocktail| %>
     <div class="col-xs-12 col-sm-2">
-    <% if cocktail.photo != nil %>
+    <% if cocktail.photo? %>
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>'); background-size: cover;">
     <% else %>
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path 'Cocktail_logo.png'%>'); background-size: cover;">
