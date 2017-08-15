@@ -13,7 +13,10 @@
 </div>
 <div class="container">
 <% @cocktail.doses.each do |dose|%>
+<% if dose.ingredient.nil? %>
+<% else %>
 <h4><%= dose.ingredient.name%></h4>
+<% end %>
 <h4><%= dose.description%></h4>
 </div>
 </div>
